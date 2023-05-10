@@ -78,6 +78,7 @@ def retrieve_compressed_list():
     compressed_docs_list = compression_retriever.get_relevant_documents(query)
     return {"compressed_docs_list":str(compressed_docs_list)}
 
+st.set_page_config(layout="centered", page_title="WikiGPT",page_icon="📖")
 
 st.title("WikiGPT📖")
 st.markdown("""  """)
