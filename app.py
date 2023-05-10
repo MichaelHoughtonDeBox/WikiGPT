@@ -17,10 +17,8 @@ def read_root():
 
 from dotenv import load_dotenv
 load_dotenv()
-#openai_api_key = os.getenv('OPENAI_API_KEY')
-#cohere_api_key = os.getenv('COHERE_API_KEY')
-weaviate_api_key = st.secrets('weaviate_api_key')
-weaviate_url = st.secrets('weaviate_url')
+weaviate_api_key = st.secrets['weaviate_api_key']
+weaviate_url = st.secrets['weaviate_url']
 
 # Retrieval code using langchain functions
 import weaviate
