@@ -8,6 +8,7 @@ from langchain.retrievers.document_compressors import CohereRerank
 
 weaviate_api_key = st.secrets["WEAVIATE_API_KEY"]
 weaviate_url = st.secrets["WEAVIATE_URL"]
+cohere_api_key=st.secrets["COHERE_API_KEY"]
 
 import weaviate
 from langchain.embeddings import CohereEmbeddings
@@ -26,9 +27,10 @@ with st.expander("About this project"):
     Join us on the WikiGPT Web App and embark on an exciting journey of exploration and learning!""")
 
 
+
 with st.sidebar:
     openai_api_key = st.text_input(label="Paste your [OpenAI API-Key](https://openai.com/product) below", type="password", placeholder="Paste your OpenAI API-Key here!")
-    cohere_api_key = st.text_input(label="Paste your [Cohere API-Key](https://dashboard.cohere.ai/api-keys) below", type="password", placeholder="Paste your OpenAI API-Key here!")
+    #cohere_api_key = st.text_input(label="Paste your [Cohere API-Key](https://dashboard.cohere.ai/api-keys) below", type="password", placeholder="Paste your OpenAI API-Key here!")
     st.markdown("This app uses a public READ-ONLY Weaviate API key")
     st.image("Xnapper-2023-05-11-08.53.41.png")
     st.markdown("""The code was forked from [@MisbahSy](https://twitter.com/MisbahSy/status/1656365356947210240?s=20). Please go check out his Twitter.""")
