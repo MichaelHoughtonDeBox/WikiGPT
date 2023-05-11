@@ -29,19 +29,20 @@ with st.sidebar:
     st.markdown("This app uses a public READ-ONLY Weaviate API key")
     st.markdown("""The code was forked from [@MisbahSy](https://twitter.com/MisbahSy/status/1656365356947210240?s=20). Please go check out his Twitter.""")
 
-auth_config = weaviate.auth.AuthApiKey(api_key=weaviate_api_key) 
-
-client = weaviate.Client( url=weaviate_url, auth_client_secret=auth_config, 
-                         additional_headers={ "X-Cohere-Api-Key": cohere_api_key})
-
-
-vectorstore = Weaviate(client,  index_name="Articles", text_key="text")
-vectorstore._query_attrs = ["text", "title", "url", "views", "lang", "_additional {distance}"]
-vectorstore.embedding =CohereEmbeddings(model="embed-multilingual-v2.0", cohere_api_key=cohere_api_key)
-llm =OpenAI(temperature=0, openai_api_key=openai_api_key)
-qa = RetrievalQA.from_chain_type(llm, retriever=vectorstore.as_retriever())
 
 if cohere_api_key and openai_api_key:
+    
+    auth_config = weaviate.auth.AuthApiKey(api_key=weaviate_api_key) 
+
+    client = weaviate.Client( url=weaviate_url, auth_client_secret=auth_config, 
+                            additional_headers={ "X-Cohere-Api-Key": cohere_api_key})
+
+
+    vectorstore = Weaviate(client,  index_name="Articles", text_key="text")
+    vectorstore._query_attrs = ["text", "title", "url", "views", "lang", "_additional {distance}"]
+    vectorstore.embedding =CohereEmbeddings(model="embed-multilingual-v2.0", cohere_api_key=cohere_api_key)
+    llm =OpenAI(temperature=0, openai_api_key=openai_api_key)
+    qa = RetrievalQA.from_chain_type(llm, retriever=vectorstore.as_retriever())
     
     language = st.text_input("What language should I respond in?", placeholder="English, French, Korean?")
 
