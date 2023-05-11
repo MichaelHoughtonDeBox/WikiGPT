@@ -55,7 +55,7 @@ if cohere_api_key and openai_api_key:
                                         placeholder="10 million open source vectors here, what would you like to know...")
         if query:
             retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
-            compressor = CohereRerank(model='rerank-multilingual-v2.0', top_n=4,cohere_api_key=cohere_api_key )
+            compressor = CohereRerank(model='rerank-multilingual-v2.0', top_n=4)
             compression_retriever = ContextualCompressionRetriever(base_compressor=compressor, base_retriever=retriever)
             compressed_docs = compression_retriever.get_relevant_documents(query)
 
