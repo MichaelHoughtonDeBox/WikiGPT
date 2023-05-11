@@ -28,7 +28,6 @@ from langchain.embeddings import CohereEmbeddings
 from langchain.vectorstores import Weaviate
 from langchain.llms import OpenAI
 from langchain.chains import RetrievalQA
-from prompt import PROMPT
 
 # This route helps generate answer
 @app.route("/retrieve", methods=['POST'])
