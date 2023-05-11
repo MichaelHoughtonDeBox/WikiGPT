@@ -20,7 +20,7 @@ load_dotenv()
 #openai_api_key = os.getenv('OPENAI_API_KEY')
 #cohere_api_key = os.getenv('COHERE_API_KEY')
 weaviate_api_key = st.secrets["WEAVIATE_API_KEY"]
-weaviate_url = st.secrets("WEAVIATEE_URL")
+weaviate_url = st.secrets("WEAVIATE_URL")
 
 # Retrieval code using langchain functions
 import weaviate
