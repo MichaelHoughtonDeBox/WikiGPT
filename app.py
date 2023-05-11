@@ -38,7 +38,7 @@ if cohere_api_key and openai_api_key:
     auth_config = weaviate.auth.AuthApiKey(api_key=weaviate_api_key) 
 
     client = weaviate.Client( url=weaviate_url, auth_client_secret=auth_config, 
-                            additional_headers={ "X-Cohere-Api-Key": cohere_api_key})
+                            additional_headers={ "X-Cohere-Api-Key": cohere_api_key=cohere_api_key})
 
 
     vectorstore = Weaviate(client,  index_name="Articles", text_key="text")
@@ -54,8 +54,8 @@ if cohere_api_key and openai_api_key:
         query = st.text_input("Ask your questions below: ", key="input",
                                         placeholder="10 million open source vectors here, what would you like to know...")
         if query:
-            retriever = vectorstore.as_retriever(search_kwargs={"k": 15})
-            compressor = CohereRerank(model='rerank-multilingual-v2.0', top_n=4 )
+            retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
+            compressor = CohereRerank(model='rerank-multilingual-v2.0', top_n=4,cohere_api_key=cohere_api_key )
             compression_retriever = ContextualCompressionRetriever(base_compressor=compressor, base_retriever=retriever)
             compressed_docs = compression_retriever.get_relevant_documents(query)
 
