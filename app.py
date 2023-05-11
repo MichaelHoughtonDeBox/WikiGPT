@@ -7,7 +7,7 @@ from langchain.retrievers.contextual_compression import ContextualCompressionRet
 from langchain.retrievers.document_compressors import CohereRerank
 
 weaviate_api_key = st.secrets["WEAVIATE_API_KEY"]
-weaviate_url = st.secrets["WEAVIATEE_URL"]
+weaviate_url = st.secrets["WEAVIATE_URL"]
 
 import weaviate
 from langchain.embeddings import CohereEmbeddings
