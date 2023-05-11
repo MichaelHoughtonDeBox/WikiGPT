@@ -18,18 +18,19 @@ from langchain.chains import RetrievalQA
 st.set_page_config(layout="centered", page_title="WikiGPT",page_icon="📖")
 
 st.title("WikiGPT📖")
+
 with st.expander("About this project"):
     st.subheader("""Welcome to WikiGPT, its ChatGPT, but with Wikipedia🥸""")
     st.markdown("""Unlock the power of knowledge with the WikiGPT Web App. Powered by CohereAI, Weaviate, and LangChainAI, this app gives you access to a vast collection of 94 million vectors of Wikipedia embeddings from 10 languages. Hosted by Weaviate and available for free search, these embeddings offer a wealth of information at your fingertips.
+    With the WikiGPT Web App, powered by LangChainAI's advanced retrieval system, you can effortlessly explore, discover, and extract valuable insights from this vast knowledge base. Get ready to dive into the world of information with just a few clicks.
+    Join us on the WikiGPT Web App and embark on an exciting journey of exploration and learning!""")
 
-With the WikiGPT Web App, powered by LangChainAI's advanced retrieval system, you can effortlessly explore, discover, and extract valuable insights from this vast knowledge base. Get ready to dive into the world of information with just a few clicks.
-
-Join us on the WikiGPT Web App and embark on an exciting journey of exploration and learning!""")
 
 with st.sidebar:
     openai_api_key = st.text_input(label="Paste your [OpenAI API-Key](https://openai.com/product) below", type="password", placeholder="Paste your OpenAI API-Key here!")
     cohere_api_key = st.text_input(label="Paste your [Cohere API-Key](https://dashboard.cohere.ai/api-keys) below", type="password", placeholder="Paste your OpenAI API-Key here!")
     st.markdown("This app uses a public READ-ONLY Weaviate API key")
+    st.image("Xnapper-2023-05-11-08.53.41.png")
     st.markdown("""The code was forked from [@MisbahSy](https://twitter.com/MisbahSy/status/1656365356947210240?s=20). Please go check out his Twitter.""")
 
 if cohere_api_key and openai_api_key:
