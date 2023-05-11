@@ -38,7 +38,7 @@ if cohere_api_key and openai_api_key:
     auth_config = weaviate.auth.AuthApiKey(api_key=weaviate_api_key) 
 
     client = weaviate.Client( url=weaviate_url, auth_client_secret=auth_config, 
-                            additional_headers={ "X-Cohere-Api-Key": cohere_api_key=cohere_api_key})
+                            additional_headers={ "X-Cohere-Api-Key": cohere_api_key})
 
 
     vectorstore = Weaviate(client,  index_name="Articles", text_key="text")
