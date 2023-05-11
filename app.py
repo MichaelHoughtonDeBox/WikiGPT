@@ -18,7 +18,11 @@ from langchain.chains import RetrievalQA
 st.set_page_config(layout="centered", page_title="WikiGPT",page_icon="📖")
 
 st.title("WikiGPT📖")
-st.markdown("""  """)
+st.markdown("""Unlock the power of knowledge with the WikiGPT Web App. Powered by CohereAI, Weaviate, and LangChainAI, this app gives you access to a vast collection of 94 million vectors of Wikipedia embeddings from 10 languages. Hosted by Weaviate and available for free search, these embeddings offer a wealth of information at your fingertips.
+
+With the WikiGPT Web App, powered by LangChainAI's advanced retrieval system, you can effortlessly explore, discover, and extract valuable insights from this vast knowledge base. Get ready to dive into the world of information with just a few clicks.
+
+Join us on the WikiGPT Web App and embark on an exciting journey of exploration and learning!""")
 
 with st.sidebar:
     st.subheader("""Welcome to WikiGPT, its like ChatGPT, but with Wikipedia🥸""")
